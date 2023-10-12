@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import userReducer from '../redux/user-slice';
 
 export const toDoListStore = configureStore({
   reducer: {
-    toDoList: () => {},
+    user: () => userReducer,
   },
 });
 
