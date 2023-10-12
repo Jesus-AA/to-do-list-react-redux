@@ -3,7 +3,7 @@ import userReducer from '../redux/user-slice';
 
 export const toDoListStore = configureStore({
   reducer: {
-    user: () => userReducer,
+    user: userReducer,
   },
 });
 
