@@ -1,7 +1,12 @@
+import styles from './App.module.scss';
+import { Register } from './components/user-register/user-register';
+
 function App() {
   return (
     <>
-      <h1>To-Do-List</h1>
+      <div className={styles['main-app-div']}>
+        <Register></Register>
+      </div>
     </>
   );
 }

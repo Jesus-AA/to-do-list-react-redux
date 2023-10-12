@@ -19,7 +19,13 @@ const initialState: UserState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.loginStatus = '';
+      state.token = undefined;
+      state.user = undefined;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(registerThunk.pending, (state) => {
       state.registerStatus = 'loading';
@@ -44,5 +50,5 @@ const userSlice = createSlice({
   },
 });
 
-export const actions = userSlice.actions;
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

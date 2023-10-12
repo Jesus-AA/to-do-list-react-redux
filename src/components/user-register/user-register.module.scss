@@ -1,0 +1,50 @@
+.main-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 55vh;
+
+    .register-title {
+      margin: 0;
+      align-self: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .form-label {
+      display: none;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+      height: 5rem;
+      .message-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 0.5rem;
+      }
+      .input {
+        border-radius: 0.5rem;
+        height: 0.7rem;
+        width: 15rem;
+        padding: 0.8rem;
+        font-size: 1rem;
+      }
+    }
+
+    button {
+      border-radius: 1.5rem;
+      width: 9rem;
+      height: 2.5rem;
+      align-self: center;
+    }
+  }
+}

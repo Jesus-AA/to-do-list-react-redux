@@ -1,4 +1,4 @@
-import userReducer from '../redux/user-slice';
+import userReducer, { logout } from '../redux/user-slice';
 import { UserState } from './user-slice';
 import { loginThunk, registerThunk } from './user-thunks';
 const mockedInitialState: UserState = {
@@ -17,6 +17,12 @@ describe('Given the userSlice', () => {
     test('Then, when login is rejected', () => {
       const newState = userReducer(mockedInitialState, loginThunk.rejected);
       expect(newState.loginStatus).toEqual('loginerror');
+    });
+  });
+  describe('When we use the slice actions', () => {
+    test('Then, when we use the logout() action', () => {
+      const newState = userReducer(mockedInitialState, logout());
+      expect(newState.loginStatus).toEqual('');
     });
   });
 });
