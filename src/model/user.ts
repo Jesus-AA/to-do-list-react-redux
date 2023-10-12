@@ -1,8 +1,11 @@
-export type UserNoId = {
-  firstName: string;
-  lastName: string;
+export type UserLoginData = {
   email: string;
   password: string;
+};
+
+export type UserNoId = UserLoginData & {
+  firstName: string;
+  lastName: string;
 };
 
 export type UserId = {

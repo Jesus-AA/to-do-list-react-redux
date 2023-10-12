@@ -1,5 +1,5 @@
 import { Task, TaskNoId } from '../model/task';
-import { ApiToDoListRepository } from './to-do-list-repository';
+import { ApiToDoListRepository } from './task-repository';
 
 describe('Given the class ApiToDoListRepository', () => {
   describe('When it is instantiated', () => {
