@@ -1,4 +1,5 @@
 import { SyntheticEvent, useState } from 'react';
+import { AiFillCheckCircle } from 'react-icons/ai';
 import { useUsers } from '../../hooks/use-users';
 import { UserNoId } from '../../model/user';
 import styles from './user-register.module.scss';
@@ -29,6 +30,7 @@ export function Register() {
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
     const formElement = ev.currentTarget as HTMLFormElement;
+
     const newUser: UserNoId = {
       firstName: (
         formElement.elements.namedItem('firstName') as HTMLFormElement
@@ -39,10 +41,6 @@ export function Register() {
       password: (formElement.elements.namedItem('password') as HTMLFormElement)
         .value,
     };
-    if (newUser.firstName.length < 2) return;
-    if (newUser.lastName.length < 2) return;
-    if (newUser.email.length < 10) return;
-    if (newUser.password.length < 8) return;
 
     userRegister(newUser);
   };
@@ -61,17 +59,26 @@ export function Register() {
               <span>Your first name should have at least 2 characters</span>
             ) : null}
           </div>
-          <div>
-            <input
-              className={styles['input']}
-              type="text"
-              name="firstName"
-              id="firstName"
-              required
-              autoComplete="true"
-              placeholder="First Name"
-              onChange={handleFirstNameChange}
-            />
+          <div className={styles['input-div']}>
+            <div>
+              <input
+                className={styles['input']}
+                type="text"
+                name="firstName"
+                id="firstName"
+                required
+                autoComplete="true"
+                placeholder="First Name"
+                onChange={handleFirstNameChange}
+              />
+            </div>
+            <div className={styles['check-div']}>
+              {firstName.length < 2 ? null : (
+                <span className={styles['check']}>
+                  <AiFillCheckCircle />
+                </span>
+              )}
+            </div>
           </div>
         </div>
         <div className={styles['section']}>
@@ -83,17 +90,26 @@ export function Register() {
               <span>Your last name should have at least 2 characters</span>
             ) : null}
           </div>
-          <div>
-            <input
-              className={styles['input']}
-              type="text"
-              name="lastName"
-              id="lastName"
-              autoComplete="true"
-              placeholder="Last Name"
-              onChange={handleLastNameChange}
-              required
-            />
+          <div className={styles['input-div']}>
+            <div>
+              <input
+                className={styles['input']}
+                type="text"
+                name="lastName"
+                id="lastName"
+                autoComplete="true"
+                placeholder="Last Name"
+                onChange={handleLastNameChange}
+                required
+              />
+            </div>
+            <div className={styles['check-div']}>
+              {lastName.length < 2 ? null : (
+                <span className={styles['check']}>
+                  <AiFillCheckCircle />
+                </span>
+              )}
+            </div>
           </div>
         </div>
         <div className={styles['section']}>
@@ -101,21 +117,41 @@ export function Register() {
             <label className={styles['form-label']} htmlFor="email">
               Email
             </label>{' '}
-            {email.length < 10 ? (
-              <span>Your email should have at least 10 characters</span>
+            {email.length < 10 ||
+            !(
+              email.includes('@gmail.com') ||
+              email.includes('@hotmail.com') ||
+              email.includes('@outlook.com')
+            ) ? (
+              <span>
+                Your email should have at least 10 characters and contain a
+                valid direction
+              </span>
             ) : null}
           </div>
-          <div>
-            <input
-              className={styles['input']}
-              type="email"
-              placeholder="example@email.com"
-              name="email"
-              id="email"
-              autoComplete="true"
-              onChange={handleEmailChange}
-              required
-            />
+          <div className={styles['input-div']}>
+            <div>
+              <input
+                className={styles['input']}
+                type="email"
+                placeholder="example@email.com"
+                name="email"
+                id="email"
+                autoComplete="true"
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
+            <div className={styles['check-div']}>
+              {email.length >= 10 &&
+              (email.includes('@gmail.com') ||
+                email.includes('@hotmail.com') ||
+                email.includes('@outlook.com')) ? (
+                <span className={styles['check']}>
+                  <AiFillCheckCircle />
+                </span>
+              ) : null}
+            </div>
           </div>
         </div>
         <div className={styles['section']}>
@@ -127,20 +163,41 @@ export function Register() {
               <span>Your password should have at least 8 characters</span>
             ) : null}
           </div>
-          <div>
-            <input
-              className={styles['input']}
-              autoComplete="true"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              onChange={handlePasswordChange}
-              required
-            />
+          <div className={styles['input-div']}>
+            <div>
+              <input
+                className={styles['input']}
+                autoComplete="true"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                onChange={handlePasswordChange}
+                required
+              />
+            </div>
+            <div className={styles['check-div']}>
+              {password.length < 8 ? null : (
+                <span className={styles['check']}>
+                  <AiFillCheckCircle />
+                </span>
+              )}
+            </div>
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <div className={styles['button-div']}>
+          {firstName.length >= 2 &&
+            lastName.length >= 2 &&
+            email.length >= 10 &&
+            (email.includes('@gmail.com') ||
+              email.includes('@hotmail.com') ||
+              email.includes('@outlook.com')) &&
+            password.length >= 8 && (
+              <button className={styles['button']} type="submit">
+                Submit
+              </button>
+            )}
+        </div>
       </form>
     </div>
   );

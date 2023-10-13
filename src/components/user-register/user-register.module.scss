@@ -25,26 +25,60 @@
       gap: 1.2rem;
       align-items: center;
       height: 5rem;
+
       .message-div {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 0.5rem;
       }
-      .input {
-        border-radius: 0.5rem;
-        height: 0.7rem;
-        width: 15rem;
-        padding: 0.8rem;
-        font-size: 1rem;
+      .input-div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        .check-div {
+          width: 3rem;
+          position: absolute;
+
+          .check {
+            font-size: 1.5rem;
+            width: 3rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            color: #4ec921;
+          }
+        }
+
+        input {
+          border-radius: 0.5rem;
+          height: 0.7rem;
+          width: 15rem;
+          padding: 0.8rem;
+          font-size: 1rem;
+        }
       }
     }
 
-    button {
-      border-radius: 1.5rem;
-      width: 9rem;
-      height: 2.5rem;
-      align-self: center;
+    .button-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      button {
+        font-size: 1rem;
+        border-radius: 1.5rem;
+        border: none;
+        width: 9rem;
+        height: 2.5rem;
+        align-self: center;
+        margin-top: 1rem;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #4ec921;
+      }
     }
   }
 }
