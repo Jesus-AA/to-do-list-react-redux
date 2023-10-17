@@ -1,4 +1,5 @@
 import { SyntheticEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './user-login.module.scss';
@@ -21,7 +22,7 @@ function Login() {
 
   return (
     <div className={styles['main-div']}>
-      <h2 className={styles['title']}>Welcome Back</h2>
+      <h2 className={styles['title']}>Sign In</h2>
       <form className={styles['form']} role="form" onSubmit={handleSubmit}>
         <div className={styles['email-container']}>
           <label className={styles['label']} htmlFor="email">
@@ -53,10 +54,14 @@ function Login() {
 
         <div className={styles['button-div']}>
           <button className={styles['button']} type="submit">
-            Login
+            Sign In
           </button>
         </div>
       </form>
+      <div className={styles['link-to-register']}>
+        <p>Don't have an account?</p>
+        <Link to={'/register'}> Register here</Link>
+      </div>
     </div>
   );
 }

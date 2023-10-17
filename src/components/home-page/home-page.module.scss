@@ -1,0 +1,30 @@
+.main-div {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10rem;
+  .pencil-logo {
+    font-size: 4rem;
+    color: #4ec921;
+  }
+
+  .sub-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 1rem;
+    .titles {
+      display: flex;
+      flex-direction: column;
+
+      .title-text {
+        font-size: 3rem;
+        margin: 0.5rem;
+        padding: 0;
+      }
+    }
+  }
+}
