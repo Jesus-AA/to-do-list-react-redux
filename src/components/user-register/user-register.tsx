@@ -118,7 +118,7 @@ export function Register() {
             <label className={styles['form-label']} htmlFor="email">
               Email
             </label>
-            {emailHandling(email) ? null : (
+            {emailHandling(email, errorSource) ? null : (
               <span>Your email should contain a valid direction</span>
             )}
           </div>
@@ -136,7 +136,7 @@ export function Register() {
               />
             </div>
             <div className={styles['check-div']}>
-              {emailHandling(email) ? (
+              {emailHandling(email, errorSource) ? (
                 !errorSource ? (
                   <span className={styles['check']}>
                     <AiFillCheckCircle />
@@ -146,6 +146,10 @@ export function Register() {
                     <AiFillCloseCircle />
                   </span>
                 )
+              ) : errorSource ? (
+                <span className={styles['cross']}>
+                  <AiFillCloseCircle />
+                </span>
               ) : null}
             </div>
           </div>

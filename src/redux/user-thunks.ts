@@ -14,7 +14,6 @@ export const registerThunk = createAsyncThunk<
     const fullUser = await repo.register(newUser);
     return fullUser;
   } catch (error) {
-    console.log(error);
     return rejectWithValue(error);
   }
 });

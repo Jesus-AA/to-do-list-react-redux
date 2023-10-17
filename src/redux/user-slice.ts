@@ -4,7 +4,7 @@ import { loginThunk, registerThunk } from './user-thunks';
 
 export type UserState = {
   user: User | undefined;
-  loginStatus: '' | 'logged' | 'loginerror' | 'loading';
+  loginStatus: 'logged' | 'loginerror' | 'loading' | undefined;
   registerStatus: 'registered' | 'loading' | 'error' | undefined;
   token: string | undefined;
   errorCode: number | undefined;
@@ -13,7 +13,7 @@ export type UserState = {
 
 const initialState: UserState = {
   user: undefined,
-  loginStatus: '',
+  loginStatus: undefined,
   registerStatus: undefined,
   token: undefined,
   errorCode: undefined,
@@ -25,7 +25,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.loginStatus = '';
+      state.loginStatus = undefined;
       state.token = undefined;
       state.user = undefined;
     },
@@ -36,6 +36,8 @@ const userSlice = createSlice({
     });
     builder.addCase(registerThunk.fulfilled, (state) => {
       state.registerStatus = 'registered';
+      state.errorCode = undefined;
+      state.errorSource = undefined;
     });
     builder.addCase(registerThunk.rejected, (state, action) => {
       state.registerStatus = 'error';

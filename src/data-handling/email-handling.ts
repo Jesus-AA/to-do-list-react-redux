@@ -1,9 +1,9 @@
-export function emailHandling(data: string) {
-  if (data.length >= 13)
+export function emailHandling(email: string, errorState: string | undefined) {
+  if (email.length >= 13 && !errorState)
     if (
-      data.includes('@gmail.com') ||
-      data.includes('@hotmail.com') ||
-      data.includes('@outlook.com')
+      email.includes('@gmail.com') ||
+      email.includes('@hotmail.com') ||
+      email.includes('@outlook.com')
     )
       return true;
     else {
