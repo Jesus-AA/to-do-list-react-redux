@@ -5,7 +5,7 @@ export type TaskNoId = {
   author: User;
   description: string;
   isCompleted: boolean;
-  date: Date;
+  date: string;
 };
 
 export type TaskId = {

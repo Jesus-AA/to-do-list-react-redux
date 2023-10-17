@@ -1,11 +1,12 @@
-import { SyntheticEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { SyntheticEvent, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './user-login.module.scss';
 
 function Login() {
-  const { userLogin } = useUsers();
+  const { userLogin, loginStatus } = useUsers();
+  const navigate = useNavigate();
 
   const handleSubmit = (ev: SyntheticEvent) => {
     ev.preventDefault();
@@ -20,6 +21,11 @@ function Login() {
     userLogin(user);
   };
 
+  useEffect(() => {
+    if (loginStatus === 'logged') {
+      navigate('/tasks');
+    }
+  }, [loginStatus, navigate]);
   return (
     <div className={styles['main-div']}>
       <h2 className={styles['title']}>Sign In</h2>

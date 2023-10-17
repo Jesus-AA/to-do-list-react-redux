@@ -1,6 +1,6 @@
 import { Task, TaskNoId } from '../model/task';
 
-export class ApiToDoListRepository {
+export class ApiTaskRepository {
   urlBase: string;
   constructor(urlBase: string) {
     this.urlBase = urlBase;

@@ -6,6 +6,7 @@ export type UserLoginData = {
 export type UserNoId = UserLoginData & {
   firstName: string;
   lastName: string;
+  tasks: [];
 };
 
 export type UserId = {

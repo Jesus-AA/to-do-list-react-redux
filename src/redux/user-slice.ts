@@ -3,7 +3,7 @@ import { User } from '../model/user';
 import { loginThunk, registerThunk } from './user-thunks';
 
 export type UserState = {
-  user: User | undefined;
+  user: User;
   loginStatus: 'logged' | 'loginerror' | 'loading' | undefined;
   registerStatus: 'registered' | 'loading' | 'error' | undefined;
   token: string | undefined;
@@ -12,7 +12,7 @@ export type UserState = {
 };
 
 const initialState: UserState = {
-  user: undefined,
+  user: {} as User,
   loginStatus: undefined,
   registerStatus: undefined,
   token: undefined,
@@ -27,7 +27,7 @@ const userSlice = createSlice({
     logout: (state) => {
       state.loginStatus = undefined;
       state.token = undefined;
-      state.user = undefined;
+      state.user = {} as User;
     },
   },
   extraReducers: (builder) => {
