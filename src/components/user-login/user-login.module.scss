@@ -67,3 +67,11 @@ input {
   padding: 0.8rem;
   font-size: 1rem;
 }
+
+.link-to-register {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
