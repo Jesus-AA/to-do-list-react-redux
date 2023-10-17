@@ -3,7 +3,7 @@ import { useUsers } from '../../hooks/use-users';
 import { UserLoginData } from '../../model/user';
 import styles from './user-login.module.scss';
 
-export function Login() {
+function Login() {
   const { userLogin } = useUsers();
 
   const handleSubmit = (ev: SyntheticEvent) => {
@@ -60,3 +60,5 @@ export function Login() {
     </div>
   );
 }
+
+export default Login;
