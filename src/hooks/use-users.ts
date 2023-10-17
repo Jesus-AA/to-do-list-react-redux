@@ -12,9 +12,8 @@ export function useUsers() {
     []
   );
 
-  const { loginStatus, registerStatus, token, user } = useSelector(
-    (state: RootState) => state.user
-  );
+  const { loginStatus, registerStatus, token, user, errorSource, errorCode } =
+    useSelector((state: RootState) => state.user);
   const userDispatch = useDispatch<ToDoListDispatch>();
 
   const userRegister = async (newUser: UserNoId) => {
@@ -31,6 +30,7 @@ export function useUsers() {
   };
 
   return {
+    userDispatch,
     userRegister,
     userLogin,
     loginStatus,
@@ -38,5 +38,7 @@ export function useUsers() {
     token,
     user,
     userLogout,
+    errorSource,
+    errorCode,
   };
 }

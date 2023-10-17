@@ -5,15 +5,19 @@ import { loginThunk, registerThunk } from './user-thunks';
 export type UserState = {
   user: User | undefined;
   loginStatus: '' | 'logged' | 'loginerror' | 'loading';
-  registerStatus: 'registered' | 'loading' | 'error' | '';
+  registerStatus: 'registered' | 'loading' | 'error' | undefined;
   token: string | undefined;
+  errorCode: number | undefined;
+  errorSource: string | undefined;
 };
 
 const initialState: UserState = {
   user: undefined,
   loginStatus: '',
-  registerStatus: '',
+  registerStatus: undefined,
   token: undefined,
+  errorCode: undefined,
+  errorSource: undefined,
 };
 
 const userSlice = createSlice({
@@ -33,8 +37,10 @@ const userSlice = createSlice({
     builder.addCase(registerThunk.fulfilled, (state) => {
       state.registerStatus = 'registered';
     });
-    builder.addCase(registerThunk.rejected, (state) => {
+    builder.addCase(registerThunk.rejected, (state, action) => {
       state.registerStatus = 'error';
+      state.errorCode = action.payload.code;
+      state.errorSource = action.payload.keyPattern;
     });
     builder.addCase(loginThunk.pending, (state) => {
       state.loginStatus = 'loading';

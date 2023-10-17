@@ -7,7 +7,6 @@ import { toDoListStore } from './store/store.ts';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={toDoListStore}>
-      {' '}
       <App />
     </Provider>
   </React.StrictMode>

@@ -13,8 +13,14 @@ export class ApiUserRepository {
       body: JSON.stringify(newUser),
       headers: { 'Content-Type': 'application/json' },
     });
-    const data = await response.json();
-    return data;
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      const errorData = await response.json();
+
+      throw errorData;
+    }
   }
 
   async login(user: UserLoginData): Promise<Payload> {

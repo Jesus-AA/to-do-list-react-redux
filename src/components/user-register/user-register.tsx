@@ -1,11 +1,12 @@
 import { SyntheticEvent, useState } from 'react';
-import { AiFillCheckCircle } from 'react-icons/ai';
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import { emailHandling } from '../../data-handling/email-handling';
 import { useUsers } from '../../hooks/use-users';
 import { UserNoId } from '../../model/user';
 import styles from './user-register.module.scss';
 
 export function Register() {
-  const { userRegister } = useUsers();
+  const { userRegister, errorSource } = useUsers();
 
   const [firstName, setFirstName] = useState('');
   const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -116,18 +117,10 @@ export function Register() {
           <div className={styles['message-div']}>
             <label className={styles['form-label']} htmlFor="email">
               Email
-            </label>{' '}
-            {email.length < 10 ||
-            !(
-              email.includes('@gmail.com') ||
-              email.includes('@hotmail.com') ||
-              email.includes('@outlook.com')
-            ) ? (
-              <span>
-                Your email should have at least 10 characters and contain a
-                valid direction
-              </span>
-            ) : null}
+            </label>
+            {emailHandling(email) ? null : (
+              <span>Your email should contain a valid direction</span>
+            )}
           </div>
           <div className={styles['input-div']}>
             <div>
@@ -143,13 +136,16 @@ export function Register() {
               />
             </div>
             <div className={styles['check-div']}>
-              {email.length >= 10 &&
-              (email.includes('@gmail.com') ||
-                email.includes('@hotmail.com') ||
-                email.includes('@outlook.com')) ? (
-                <span className={styles['check']}>
-                  <AiFillCheckCircle />
-                </span>
+              {emailHandling(email) ? (
+                !errorSource ? (
+                  <span className={styles['check']}>
+                    <AiFillCheckCircle />
+                  </span>
+                ) : (
+                  <span className={styles['cross']}>
+                    <AiFillCloseCircle />
+                  </span>
+                )
               ) : null}
             </div>
           </div>

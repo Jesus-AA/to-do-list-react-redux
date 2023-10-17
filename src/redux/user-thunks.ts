@@ -9,9 +9,14 @@ export const registerThunk = createAsyncThunk<
     repo: ApiUserRepository;
     newUser: UserNoId;
   }
->('user/create', async ({ repo, newUser }) => {
-  const fullUser = await repo.register(newUser);
-  return fullUser;
+>('user/create', async ({ repo, newUser }, { rejectWithValue }) => {
+  try {
+    const fullUser = await repo.register(newUser);
+    return fullUser;
+  } catch (error) {
+    console.log(error);
+    return rejectWithValue(error);
+  }
 });
 
 export const loginThunk = createAsyncThunk<
