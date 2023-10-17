@@ -5,7 +5,7 @@ import { useUsers } from '../../hooks/use-users';
 import { UserNoId } from '../../model/user';
 import styles from './user-register.module.scss';
 
-export function Register() {
+function Register() {
   const { userRegister, errorSource } = useUsers();
 
   const [firstName, setFirstName] = useState('');
@@ -202,3 +202,5 @@ export function Register() {
     </div>
   );
 }
+
+export default Register;

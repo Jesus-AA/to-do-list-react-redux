@@ -1,11 +1,11 @@
 import styles from './App.module.scss';
-import { Register } from './components/user-register/user-register';
+import { AppRouter } from './routes/app-routes';
 
 function App() {
   return (
     <>
       <div className={styles['main-app-div']}>
-        <Register></Register>
+        <AppRouter></AppRouter>
       </div>
     </>
   );
