@@ -51,21 +51,25 @@
     width: 9rem;
     height: 2.5rem;
     align-self: center;
+    background-color: #eee5db;
 
     cursor: pointer;
   }
   .button:hover {
-    background-color: #4ec921;
+    background-color: #ddccb8;
     color: white;
   }
 }
 
 input {
   border-radius: 0.5rem;
-  height: 0.7rem;
+  height: 2rem;
   width: 15rem;
   padding: 0.8rem;
   font-size: 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
 .link-to-register {

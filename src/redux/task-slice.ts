@@ -4,12 +4,14 @@ import { getAllTasksThunk } from './task-thunks';
 
 export type TaskState = {
   tasks: Task[];
-  loadingStatus: undefined | 'loading' | 'loaded' | 'error';
+  loadingStatus: undefined | 'loading' | 'loaded' | 'error' | 'deleted';
+  deletingStatus: undefined | 'loading' | 'deleted' | 'error';
 };
 
 const initialState: TaskState = {
   tasks: [],
   loadingStatus: undefined,
+  deletingStatus: undefined,
 };
 
 const taskSlice = createSlice({

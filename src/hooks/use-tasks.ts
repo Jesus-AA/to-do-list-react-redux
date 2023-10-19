@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllTasksThunk } from '../redux/task-thunks';
+import { Task } from '../model/task';
+import { deleteTaskThunk, getAllTasksThunk } from '../redux/task-thunks';
 import { ApiTaskRepository } from '../services/task-repository';
 import { RootState, ToDoListDispatch } from '../store/store';
 
@@ -19,9 +20,14 @@ export function useTasks() {
     taskDispatch(getAllTasksThunk(repo));
   }, [repo, taskDispatch]);
 
+  const deleteTask = async (task: Task) => {
+    taskDispatch(deleteTaskThunk({ repo, task }));
+  };
+
   return {
     getTasks,
     tasks,
+    deleteTask,
     loadingStatus,
   };
 }

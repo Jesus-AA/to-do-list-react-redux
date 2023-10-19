@@ -1,0 +1,12 @@
+.main-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .main-div-title {
+    align-self: center;
+  }
+  .card-div {
+    display: flex;
+    gap: 1rem;
+  }
+}
