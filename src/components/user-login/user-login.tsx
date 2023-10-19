@@ -29,6 +29,7 @@ function Login() {
   return (
     <div className={styles['main-div']}>
       <h2 className={styles['title']}>Sign In</h2>
+
       <form className={styles['form']} role="form" onSubmit={handleSubmit}>
         <div className={styles['email-container']}>
           <label className={styles['label']} htmlFor="email">
@@ -64,9 +65,14 @@ function Login() {
           </button>
         </div>
       </form>
+
       <div className={styles['link-to-register']}>
         <p>Don't have an account?</p>
-        <Link to={'/register'}> Register here</Link>
+        <Link to={'/register'}>
+          <p role="button" className={styles['register-here']}>
+            Register here
+          </p>
+        </Link>
       </div>
     </div>
   );
