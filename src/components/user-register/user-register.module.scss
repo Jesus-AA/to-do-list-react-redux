@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: rgba(245, 245, 245, 0.872);
 
   .form {
     display: flex;
@@ -42,7 +46,6 @@
         .check-div {
           width: 3rem;
           position: absolute;
-
           .check {
             font-size: 1.5rem;
             width: 3rem;
@@ -62,11 +65,14 @@
         }
 
         input {
-          border-radius: 0.5rem;
-          height: 0.7rem;
-          width: 15rem;
-          padding: 0.8rem;
+          border-radius: 0.55rem;
+          height: 2.5rem;
+          width: 18rem;
+          padding: 0.5rem;
           font-size: 1rem;
+          background-color: gainsboro;
+          border: none;
+          outline: none;
         }
       }
     }
@@ -76,6 +82,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 4rem;
       button {
         font-size: 1rem;
         border-radius: 1.5rem;
@@ -87,7 +94,7 @@
         cursor: pointer;
       }
       .button:hover {
-        background-color: #4ec921;
+        background-color: black;
         color: white;
       }
     }
