@@ -8,11 +8,18 @@ export function Tasks() {
 
   return (
     <div className={styles['main-div']}>
-      <h2 className={styles['main-div-title']}>To-Do List</h2>
+      <div className={styles['main-div-title']}>
+        <h2>To-Do List</h2>
+      </div>
+
       <div className={styles['card-div']}>
-        {user.tasks.map((item: Task, index: number) => (
-          <TaskCard key={index} task={item}></TaskCard>
-        ))}
+        <ul>
+          {user.tasks.map((item: Task, index: number) => (
+            <li key={index}>
+              <TaskCard task={item}></TaskCard>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

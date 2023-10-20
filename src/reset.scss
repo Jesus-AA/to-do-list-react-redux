@@ -5,39 +5,27 @@
   font-family: 'Rubik', sans-serif;
 }
 
-html {
+html,
+body {
   background: url('../public//White\ Minimal\ Dot\ Grid\ Bullet\ Journal\ \(A2\ \(Landscape\)\).svg')
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
-div,
-span,
-h1,
-h2,
-h3,
-p,
-a,
-img,
-ol,
-ul,
-li,
-form,
-label,
-legend,
-footer,
-menu,
-nav,
-section {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
+body::-webkit-scrollbar {
+  background-color: whitesmoke;
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(186, 186, 186);
+  border-radius: 20px;
+}
+
+::selection {
+  color: white;
+  text-shadow: 0 0 10px black;
 }

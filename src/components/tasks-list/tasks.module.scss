@@ -1,0 +1,31 @@
+.main-div {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  background-color: gainsboro;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  .main-div-title {
+    font-size: 2.5rem;
+    align-self: center;
+  }
+  .card-div {
+    display: flex;
+    flex-direction: column;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+
+      li {
+        text-decoration: none;
+        list-style-type: none;
+      }
+    }
+  }
+}

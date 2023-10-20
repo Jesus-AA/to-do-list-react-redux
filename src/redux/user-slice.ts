@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Task } from '../model/task';
 import { User } from '../model/user';
-import { deleteTaskThunk } from './task-thunks';
+import { deleteTaskThunk, isDoneTaskThunk } from './task-thunks';
 import { loginThunk, registerThunk } from './user-thunks';
 
 export type UserState = {
@@ -13,6 +13,7 @@ export type UserState = {
   errorCode: number | undefined;
   errorSource: string | undefined;
   deletingStatus: undefined | 'loading' | 'deleted' | 'error';
+  updatingTask: undefined | 'loading' | 'updated' | 'error';
 };
 
 const initialState: UserState = {
@@ -24,6 +25,7 @@ const initialState: UserState = {
   errorCode: undefined,
   errorSource: undefined,
   deletingStatus: undefined,
+  updatingTask: undefined,
 };
 
 const userSlice = createSlice({
@@ -70,6 +72,18 @@ const userSlice = createSlice({
       (state, { payload }: { payload: Task['id'] }) => {
         state.deletingStatus = 'deleted';
         state.tasks = state.user.tasks.filter((tasks) => tasks.id !== payload);
+        state.user.tasks = state.tasks;
+      }
+    );
+    builder.addCase(isDoneTaskThunk.pending, (state) => {
+      state.updatingTask = 'loading';
+    });
+    builder.addCase(
+      isDoneTaskThunk.fulfilled,
+      (state, { payload }: { payload: Task }) => {
+        state.tasks = state.tasks.map((item) =>
+          item.id === payload.id ? payload : item
+        );
         state.user.tasks = state.tasks;
       }
     );

@@ -1,3 +1,4 @@
+import { BiCheckSquare, BiSquare } from 'react-icons/bi';
 import { MdDelete } from 'react-icons/md';
 import { useTasks } from '../../hooks/use-tasks';
 import { Task } from '../../model/task';
@@ -8,15 +9,38 @@ type Props = {
 };
 
 export function TaskCard({ task }: Props) {
-  const { deleteTask } = useTasks();
+  const { deleteTask, updateTask } = useTasks();
+
+  const handleChange = () => {
+    const taskToUpdate = { ...task, isCompleted: !task.isCompleted };
+
+    updateTask(taskToUpdate);
+  };
 
   return (
     <div className={styles['card-div']}>
       <h3 className={styles['card-title']}>{task.title}</h3>
       <p className={styles['card-desc']}>{task.description}</p>
-      <span role="button" onClick={() => deleteTask(task)}>
-        <MdDelete></MdDelete>
-      </span>
+      <div className={styles['buttons-div']}>
+        <span
+          className={styles['delete']}
+          role="button"
+          onClick={() => deleteTask(task)}
+        >
+          <MdDelete></MdDelete>
+        </span>
+        <span
+          onClick={handleChange}
+          className={styles['is-it-done']}
+          role="button"
+        >
+          {task.isCompleted ? (
+            <BiCheckSquare className={styles['is-done']}></BiCheckSquare>
+          ) : (
+            <BiSquare></BiSquare>
+          )}
+        </span>
+      </div>
     </div>
   );
 }

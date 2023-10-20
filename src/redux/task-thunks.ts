@@ -32,3 +32,14 @@ export const deleteTaskThunk = createAsyncThunk<
 
   return task.id;
 });
+
+export const isDoneTaskThunk = createAsyncThunk<
+  Task,
+  {
+    repo: ApiTaskRepository;
+    task: Task;
+  }
+>('task/isDone', async ({ repo, task }) => {
+  const updatedTask = await repo.update(task.id, task);
+  return updatedTask;
+});

@@ -1,0 +1,35 @@
+.card-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 15rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .buttons-div {
+    display: flex;
+    justify-content: space-between;
+    .delete {
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .delete:hover {
+      color: red;
+    }
+
+    .is-it-done {
+      cursor: pointer;
+      font-size: 1.5rem;
+      .is-done {
+        color: green;
+      }
+    }
+  }
+}

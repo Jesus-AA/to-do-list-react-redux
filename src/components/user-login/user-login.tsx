@@ -66,6 +66,12 @@ function Login() {
         </div>
       </form>
 
+      <div className={styles['credentials-div']}>
+        {loginStatus === 'loginerror' ? (
+          <p className={styles['login-credentials']}>Invalid credentials</p>
+        ) : null}
+      </div>
+
       <div className={styles['link-to-register']}>
         <p>Don't have an account?</p>
         <Link to={'/register'}>
