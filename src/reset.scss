@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+html,
+body {
+  background: url('/White Minimal Dot Grid Bullet Journal (A2 (Landscape)).svg')
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body::-webkit-scrollbar {
+  background-color: whitesmoke;
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(186, 186, 186);
+  border-radius: 20px;
+}
+
+::selection {
+  color: white;
+  text-shadow: 0 0 10px black;
+}

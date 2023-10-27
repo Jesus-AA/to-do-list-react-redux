@@ -1,6 +1,6 @@
 import { Task, TaskNoId } from '../model/task';
 
-export class ApiToDoListRepository {
+export class ApiTaskRepository {
   urlBase: string;
   constructor(urlBase: string) {
     this.urlBase = urlBase;
@@ -26,7 +26,7 @@ export class ApiToDoListRepository {
   }
 
   async create(item: TaskNoId): Promise<Task> {
-    const response = await fetch(this.urlBase, {
+    const response = await fetch(this.urlBase + '/create', {
       method: 'POST',
       body: JSON.stringify(item),
       headers: { 'Content-Type': 'application/json' },

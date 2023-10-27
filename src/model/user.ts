@@ -1,3 +1,5 @@
+import { Task } from './task';
+
 export type UserLoginData = {
   email: string;
   password: string;
@@ -12,4 +14,7 @@ export type UserId = {
   id: string;
 };
 
-export type User = UserNoId & UserId;
+export type User = UserNoId &
+  UserId & {
+    tasks: Task[];
+  };

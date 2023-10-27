@@ -55,11 +55,12 @@ function Register() {
           <div className={styles['message-div']}>
             <label className={styles['form-label']} htmlFor="firstName">
               First Name
-            </label>{' '}
+            </label>
             {firstName.length < 2 ? (
               <span>Your first name should have at least 2 characters</span>
             ) : null}
           </div>
+
           <div className={styles['input-div']}>
             <div>
               <input
@@ -82,6 +83,7 @@ function Register() {
             </div>
           </div>
         </div>
+
         <div className={styles['section']}>
           <div className={styles['message-div']}>
             <label className={styles['form-label']} htmlFor="lastName">
@@ -91,6 +93,7 @@ function Register() {
               <span>Your last name should have at least 2 characters</span>
             ) : null}
           </div>
+
           <div className={styles['input-div']}>
             <div>
               <input
@@ -113,6 +116,7 @@ function Register() {
             </div>
           </div>
         </div>
+
         <div className={styles['section']}>
           <div className={styles['message-div']}>
             <label className={styles['form-label']} htmlFor="email">
@@ -122,6 +126,7 @@ function Register() {
               <span>Your email should contain a valid direction</span>
             )}
           </div>
+
           <div className={styles['input-div']}>
             <div>
               <input
@@ -154,6 +159,7 @@ function Register() {
             </div>
           </div>
         </div>
+
         <div className={styles['section']}>
           <div className={styles['message-div']}>
             <label className={styles['form-label']} htmlFor="password">
@@ -163,6 +169,7 @@ function Register() {
               <span>Your password should have at least 8 characters</span>
             ) : null}
           </div>
+
           <div className={styles['input-div']}>
             <div>
               <input
@@ -185,6 +192,7 @@ function Register() {
             </div>
           </div>
         </div>
+
         <div className={styles['button-div']}>
           {firstName.length >= 2 &&
             lastName.length >= 2 &&

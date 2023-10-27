@@ -1,77 +1,93 @@
 .main-div {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+
   .title {
-    margin: 0;
-    margin-top: 1.5rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
     align-self: center;
-    margin-bottom: 0.9rem;
-    font-size: 2.5rem;
   }
+
+  .credentials-div {
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    .invalid-credentials {
+      align-self: center;
+
+      text-align: center;
+    }
+  }
+
   .form {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    width: 55vh;
-    align-items: center;
-    justify-content: center;
-
+    gap: 2rem;
     .email-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 1rem;
       .label {
-        display: none;
+        font-size: 1.5rem;
+      }
+      input {
+        height: 2.5rem;
+        border-radius: 0.55rem;
+        border: none;
+        outline: none;
+        background-color: gainsboro;
+        width: 18rem;
+        padding: 0.5rem;
+        font-size: 1rem;
       }
     }
     .password-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 1rem;
       .label {
-        display: none;
+        font-size: 1.5rem;
+      }
+      input {
+        height: 2.5rem;
+        border-radius: 0.55rem;
+        border: none;
+        outline: none;
+        background-color: gainsboro;
+        width: 18rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    .button-div {
+      align-self: center;
+      button {
+        height: 2.5rem;
+        border-radius: 0.7rem;
+        border: none;
+        width: 8rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
       }
     }
   }
-}
-.button-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  button {
-    font-size: 1rem;
-    border-radius: 1.5rem;
-    border: none;
-    width: 9rem;
-    height: 2.5rem;
-    align-self: center;
 
-    cursor: pointer;
+  .link-to-register {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    color: black;
+    .register-here {
+      font-weight: 900;
+      color: black;
+    }
   }
-  .button:hover {
-    background-color: #4ec921;
-    color: white;
-  }
-}
-
-input {
-  border-radius: 0.5rem;
-  height: 0.7rem;
-  width: 15rem;
-  padding: 0.8rem;
-  font-size: 1rem;
-}
-
-.link-to-register {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
 }
