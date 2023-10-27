@@ -37,6 +37,11 @@ export function useTasks() {
     taskDispatch(isDoneTaskThunk({ repo, task }));
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function sortByDate(a: any, b: any) {
+    return new Date(b.date).valueOf() - new Date(a.date).valueOf();
+  }
+
   return {
     createTask,
     getTasks,
@@ -44,5 +49,6 @@ export function useTasks() {
     deleteTask,
     loadingStatus,
     updateTask,
+    sortByDate,
   };
 }

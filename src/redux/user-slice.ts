@@ -100,7 +100,7 @@ const userSlice = createSlice({
       createTaskThunk.fulfilled,
       (state, { payload }: { payload: Task }) => {
         state.creatingTask = 'created';
-        state.tasks.push(payload);
+        state.tasks.unshift(payload);
         state.user.tasks = state.tasks;
       }
     );
