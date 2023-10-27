@@ -6,14 +6,26 @@
   border: 1px solid black;
   border-radius: 1rem;
   padding: 1rem;
+  height: 15rem;
+  justify-content: space-between;
 
-  .card-title {
-    font-size: 1.5rem;
+  .title-edit-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .card-title {
+      font-size: 1.5rem;
+    }
+    span {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
   }
 
   .buttons-div {
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
     .delete {
       font-size: 1.5rem;
       cursor: pointer;

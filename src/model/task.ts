@@ -2,10 +2,10 @@ import { User } from './user';
 
 export type TaskNoId = {
   title: string;
-  author: User;
+  author: User['id'];
   description: string;
-  isCompleted: boolean;
-  date: string;
+  isCompleted?: boolean;
+  date?: string;
 };
 
 export type TaskId = {

@@ -1,3 +1,4 @@
+import { AiFillEdit } from 'react-icons/ai';
 import { BiCheckSquare, BiSquare } from 'react-icons/bi';
 import { MdDelete } from 'react-icons/md';
 import { useTasks } from '../../hooks/use-tasks';
@@ -19,7 +20,13 @@ export function TaskCard({ task }: Props) {
 
   return (
     <div className={styles['card-div']}>
-      <h3 className={styles['card-title']}>{task.title}</h3>
+      <div className={styles['title-edit-div']}>
+        <h3 className={styles['card-title']}>{task.title}</h3>
+        <span>
+          <AiFillEdit></AiFillEdit>
+        </span>
+      </div>
+
       <p className={styles['card-desc']}>{task.description}</p>
       <div className={styles['buttons-div']}>
         <span

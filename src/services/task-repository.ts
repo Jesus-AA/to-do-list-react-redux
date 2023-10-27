@@ -26,7 +26,7 @@ export class ApiTaskRepository {
   }
 
   async create(item: TaskNoId): Promise<Task> {
-    const response = await fetch(this.urlBase, {
+    const response = await fetch(this.urlBase + '/create', {
       method: 'POST',
       body: JSON.stringify(item),
       headers: { 'Content-Type': 'application/json' },

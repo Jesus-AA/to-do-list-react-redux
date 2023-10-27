@@ -1,7 +1,8 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Task } from '../model/task';
+import { Task, TaskNoId } from '../model/task';
 import {
+  createTaskThunk,
   deleteTaskThunk,
   getAllTasksThunk,
   isDoneTaskThunk,
@@ -24,6 +25,10 @@ export function useTasks() {
     taskDispatch(getAllTasksThunk(repo));
   }, [repo, taskDispatch]);
 
+  const createTask = async (newTask: TaskNoId) => {
+    taskDispatch(createTaskThunk({ repo, newTask }));
+  };
+
   const deleteTask = async (task: Task) => {
     taskDispatch(deleteTaskThunk({ repo, task }));
   };
@@ -33,6 +38,7 @@ export function useTasks() {
   };
 
   return {
+    createTask,
     getTasks,
     tasks,
     deleteTask,
